@@ -1,23 +1,28 @@
-import type { Config } from "tailwindcss";
-
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
     content: [
-        "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-        "./components/**/*.{js,ts,jsx,tsx,mdx}",
-        "./app/**/*.{js,ts,jsx,tsx,mdx}",
+      "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+      "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+      "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     ],
+    darkMode: "class",
     theme: {
-        extend: {
-            colors: {
-                black: {
-                    DEFAULT: '#000000', // Default black color
-                    100: '#000319',     // Custom black-100 shade
-                },
-                
-            },
+      extend: {
+        animation: {
+          shimmer: "shimmer 2s linear infinite",
         },
+        keyframes: {
+          shimmer: {
+            from: {
+              backgroundPosition: "0 0",
+            },
+            to: {
+              backgroundPosition: "-200% 0",
+            },
+          },
+        },
+      },
     },
     plugins: [],
-};
-
-export default config;
+  };
+  
